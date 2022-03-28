@@ -7,6 +7,7 @@ import * as fromAuth from '@example-app/auth/reducers';
 import { LoginPageActions } from '@example-app/auth/actions';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { MaterialModule } from '@example-app/material';
+import { LoginPageStore } from './login-page.store';
 
 describe('Login Page', () => {
   let fixture: ComponentFixture<LoginPageComponent>;
@@ -18,6 +19,7 @@ describe('Login Page', () => {
       imports: [NoopAnimationsModule, MaterialModule, ReactiveFormsModule],
       declarations: [LoginPageComponent, LoginFormComponent],
       providers: [
+        LoginPageStore,
         provideMockStore({
           selectors: [
             { selector: fromAuth.selectLoginPagePending, value: false },
